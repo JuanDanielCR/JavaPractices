@@ -21,7 +21,7 @@ public class HilosJava {
             public void run(){
                 int dialogResult = JOptionPane.showConfirmDialog (null, "Hilos 1");
                 if(dialogResult == JOptionPane.YES_OPTION){
-                    System.out.println("YEs");
+                    System.out.println("Yes Sir");
                 }
             }
         };
