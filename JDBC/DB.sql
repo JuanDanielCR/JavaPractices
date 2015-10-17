@@ -15,6 +15,7 @@ insert into vehiculo values
 (4,'PLACA5','CRV','NISSAN'),
 (5,'PLACA6','A3','AUDI');
 select * from vehiculo;
+update vehiculo set nombre='Modificado' where vehiculo_id=1;
 drop table vehiculo;
 #Ver Conexiones Activas
 	show processlist;
