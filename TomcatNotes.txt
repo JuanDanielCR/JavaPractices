@@ -31,4 +31,4 @@ set JAVA_OPTS=%JAVA_OPTS% %LOGGING_MANAGER%
 1.- Agregar el servidor de tomcat
 	/NetBeans/Tools/Servers
 2.-Crear un proyecto web 
-3.-Correrlo desde netbeans o Guardarlo en tomcat/webapps + ingresar su url
+3.-Correrlo desde netbeans o Guardarlo en tomcat/webapps + ingresar su url.
