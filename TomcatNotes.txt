@@ -1,0 +1,34 @@
+REST=RESTFUL
+SOAP - Pasado, seguridad
+	vs
+RESTFUL - cada quien lo crea, no se audita, permite conexión JSON
+REST - Protocolo
+
+INSTALL TOMCAT
+1.- Download the zip version from the oficial apge
+2.- Extract the Folder
+3.- ENVIROMENTAL VARIABLES
+	-Add Java Home variable 
+	-Add CATALINA_HOME path: el path de la carpeta tomcat-version.0.0
+4.-Start TOMCAT
+	Go to: C:\Users\djaqcu1\Documents\Java\apache-tomcat-7.0.65\bin
+	Run: startup.bat
+	Suhtdown: shutdown.bat
+
+NOTE:
+BUG - 
+
+Para modificar catalina.bat click derecho + editar [Quitar Comillas que tiene].
+:noJuliConfig
+set JAVA_OPTS=%JAVA_OPTS% %LOGGING_CONFIG%
+
+.. 
+
+:noJuliManager
+set JAVA_OPTS=%JAVA_OPTS% %LOGGING_MANAGER%
+
+--------------TOMCAT NETBEANS----------------
+1.- Agregar el servidor de tomcat
+	/NetBeans/Tools/Servers
+2.-Crear un proyecto web 
+3.-Correrlo desde netbeans o Guardarlo en tomcat/webapps + ingresar su url
