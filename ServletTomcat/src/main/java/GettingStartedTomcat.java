@@ -28,6 +28,7 @@ public class GettingStartedTomcat extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        //Tipo de Dato a enviar
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         try {

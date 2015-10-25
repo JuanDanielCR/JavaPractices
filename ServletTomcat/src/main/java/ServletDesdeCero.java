@@ -19,11 +19,13 @@ public class ServletDesdeCero extends HttpServlet{
             throws ServletException, IOException {
     //Recuperando data por medio de un get, (URL)
         String message= request.getParameter("message");
+        //Espicificar el tipo de Contenido a enviar
+        response.setContentType("application/json");
     //PrintWritter es un Writter que nos permite escribir la respuesta, out=response.getWritter el objeto response me da un Writter válido
         //System.out.print(); es un writer para el System
         //En este caso out es un writter para el response
          try(PrintWriter out= response.getWriter()){
-         out.print("{\"message\": \"" + message + "\"\"}");
+         out.print("{\"message\": \"" + message + "\"}");
          
          }
          //Cerrar el Writter *Si uso try(){} no es necesario cerrar, de otra forma usar
