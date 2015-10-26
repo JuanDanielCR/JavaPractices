@@ -1,0 +1,25 @@
+REST=RESTFUL
+SOAP - Pasado, seguridad
+	vs
+RESTFUL - cada quien lo crea, no se audita, permite conexión JSON
+REST - Protocolo
+
+REST usa POST, ya que estoy enviado data al servidor, para obtener una respuesta.
+**GET, es usado normalmente para para traer contenido pero no se acostumbra envíar.
+
+------REST CLIENT-----
+Es una aplicación que me permite hacer pruebas POST a una URL, extensiones para Chrome o Firefox
+
+
+-------USO SERVICIO REST-------
+Recibo un JSON y debo deserializarlo para crear un objeto 
+
+--------JACKSON-------------
+https://github.com/FasterXML/jackson
+Standard JSON Library for Java, nos permite parsear (binding) de un JSON a un Objeto Java
+1.- Crear el Objeto en Java con las variables y metodos para guardar nuestr JSON
+2.- Crear Object Mapper.
+3.- Realizar Deserializacion con mapper();
+
+SERIALIZAR  => OBJECT to JSON
+DESERIALIZAR => JSON to OBJECT

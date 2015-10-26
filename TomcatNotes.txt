@@ -1,9 +1,3 @@
-REST=RESTFUL
-SOAP - Pasado, seguridad
-	vs
-RESTFUL - cada quien lo crea, no se audita, permite conexión JSON
-REST - Protocolo
-
 INSTALL TOMCAT
 1.- Download the zip version from the oficial apge
 2.- Extract the Folder

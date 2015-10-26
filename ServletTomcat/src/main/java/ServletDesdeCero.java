@@ -1,4 +1,6 @@
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -39,6 +41,25 @@ public class ServletDesdeCero extends HttpServlet{
      @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        super.doPost(request, response);
+        //POST usado en servicios rest
+        //Ahora obtenemos un body en la peticion, ya no obtenemos parametros en la url, ej. cuando nos registramos 
+        //en un formulario al poner method="POST"
+        String linea;
+        //StringBuffered va almacenando bits en formato String
+        StringBuilder json= new StringBuilder();
+        //BufferedReader va almacenando los bits mandandos y leidos por el req.getReader
+        try(BufferedReader reader = request.getReader()){
+            //El String linea = pasa los bits leidos y guardados el buffer a un formato String
+            while((linea=reader.readLine())!=null){
+                //Mandamos cada liena a un Buffered para ser guardado
+                json.append(linea);
+            }
+            System.out.println(json.toString());
+            //Tratamiento al JSON recibido usar jackson en el POM
+            ObjectMapper mapper= new ObjectMapper();
+            //CLASE que cree message=convierte este json en un Message.class
+            Message message= mapper.readValue(json.toString(),Message.class);
+            System.out.println(message.getSize());
+        }
     }
 }
