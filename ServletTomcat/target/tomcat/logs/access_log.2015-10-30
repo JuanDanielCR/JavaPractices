@@ -1,0 +1,4 @@
+0:0:0:0:0:0:0:1 - - [30/Oct/2015:20:09:27 -0600] "GET / HTTP/1.1" 404 - http-bio-8080-exec-1 0
+0:0:0:0:0:0:0:1 - - [30/Oct/2015:20:09:44 -0600] "GET /ServletTomcat HTTP/1.1" 302 - http-bio-8080-exec-2 0
+0:0:0:0:0:0:0:1 - - [30/Oct/2015:20:09:45 -0600] "GET /ServletTomcat/ HTTP/1.1" 500 2263 http-bio-8080-exec-3 667
+0:0:0:0:0:0:0:1 - - [30/Oct/2015:20:10:17 -0600] "GET /ServletTomcat/ServletCero?message=jsonmama HTTP/1.1" 200 23 http-bio-8080-exec-4 6

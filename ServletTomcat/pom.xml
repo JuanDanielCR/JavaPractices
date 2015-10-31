@@ -42,9 +42,8 @@
 	<groupId>org.codehaus.jackson</groupId>
 	<artifactId>jackson-jaxrs</artifactId>
 	<version>1.9.13</version>
-</dependency>
-    
-    </dependencies>
+</dependency>    
+</dependencies>
 
     <build>
         <plugins>
@@ -59,6 +58,11 @@
                         <endorseddirs>${endorsed.dir}</endorseddirs>
                     </compilerArguments>
                 </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.tomcat.maven</groupId>
+                <artifactId>tomcat7-maven-plugin</artifactId>
+                <version>2.0</version>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

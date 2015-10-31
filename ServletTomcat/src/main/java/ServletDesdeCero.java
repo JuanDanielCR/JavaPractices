@@ -59,7 +59,11 @@ public class ServletDesdeCero extends HttpServlet{
             ObjectMapper mapper= new ObjectMapper();
             //CLASE que cree message=convierte este json en un Message.class
             Message message= mapper.readValue(json.toString(),Message.class);
-            System.out.println(message.getSize());
+            System.out.println(message.getSize()+" msj: "+message.getMessage());
+            response.setContentType("text/html;charset=UTF-8");
+            try(PrintWriter out= response.getWriter()){
+                out.print("Este es el response dentro de un objeto PrintWriter");
+            }
         }
     }
 }

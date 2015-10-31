@@ -26,3 +26,22 @@ set JAVA_OPTS=%JAVA_OPTS% %LOGGING_MANAGER%
 	/NetBeans/Tools/Servers
 2.-Crear un proyecto web 
 3.-Correrlo desde netbeans o Guardarlo en tomcat/webapps + ingresar su url.
+
+----TRY RESOURCES vs TRY CATCH--------
+try(){}catch(){} --> Captura una exception
+try(){
+	Abre un resource y lo cierra al final, como un Writer
+}
+
+
+
+---------------PLUGIN MAVEN--------------------
+Maven 7 Tomcat Plugin permite manipular war y sube un tomcat directo en maven, antes se creaba e war y se copiaba manualmente a la carpeta webapps de tomcat o con un script de shell se mandaba ahi, pero este plugin ahora permite correr rapidamente un war con:
+>maven tomcat7:run
+Esto en el root que contenga el pom.xml
+
+<plugin>
+        <groupId>org.apache.tomcat.maven</groupId>
+        <artifactId>tomcat7-maven-plugin</artifactId>
+        <version>2.0</version>
+</plugin>
