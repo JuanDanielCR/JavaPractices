@@ -23,3 +23,29 @@ Standard JSON Library for Java, nos permite parsear (binding) de un JSON a un Ob
 
 SERIALIZAR  => OBJECT to JSON
 DESERIALIZAR => JSON to OBJECT
+
+---------------REST------------------
+Se consume desde cualquier tipo de cliente.
+Rest se autodocumenta.
+"Arquitectura de Cliente Servidor consumiendo datos"
+REST:
+	-Se basa en un interfaz uniforme con 4 conceptos:
+		
+		RECURSO-tiene su URI unica y su especificación
+
+		1.Recursos identificados por medio de URIS (Universal Resource Identifiers), las uris son unicas para cada recurso
+		  URI se divide en dos ramas URL, URN
+		
+		2.Manipulacion de Recursos a través de representaciones (XML,JSON), me responde a un recurso con una representacion.
+
+		3. Mensajes Autodescriptivos (meta-data content/type), al acceder a la URI el servidor envía el recurso con metadatos que describen a los datos por ejemplo el formato que lleva como json.
+
+		4. Autodocumentable (HATEOAS)
+
+NOTA: No usar verbos en las URI ej. /addUser en lugar de manejarlo por uris, hacer uso de los metodos http, add, get, put, delete.
+
+Para un URI buena practica:
+/ServletCero -- Así solo es un GET
+Si lo llamo enviandole cosas será un POST
+Por eso el servlet tiene un doGET y un doPOST para el mismo URI
+HTTP ya provee una interface universal con metodos para poder realizar operaciones como delete(borrar), put(actualizar), en el mismo URI
