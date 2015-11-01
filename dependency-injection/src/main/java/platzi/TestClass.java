@@ -13,7 +13,10 @@ public class TestClass {
 		 * clase dependiente. 
 		 * */
 		printer.setMessageService(new SadMessageService());
-		/*Setter con el que mando un objeto de la dependencia que inyectare*/
+		/*
+		 * Setter con el que mando un objeto de la dependencia que inyectare.
+		 * La dependencia es un clase.
+		 * */
 		printer.printMessage();
 	}
 

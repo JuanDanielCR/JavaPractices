@@ -7,14 +7,14 @@ import org.springframework.context.annotation.*;
 @ComponentScan
 public class Application {
 
-	@Bean
+	/*@Bean
 	MessageService mockMessageService() {
 		return new MessageService() {
 			public String getMessage() {
 				return "Hello Platzi!!!";
 			}
 		};
-	}
+	}*/
 
 	@Bean(name="happyMessageService")
 	MessageService happyMessageService() {
