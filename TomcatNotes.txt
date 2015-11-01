@@ -45,3 +45,6 @@ Esto en el root que contenga el pom.xml
         <artifactId>tomcat7-maven-plugin</artifactId>
         <version>2.0</version>
 </plugin>
+
+--------------PLUGIN MAVEN + CMD-----------------
+mvn tomcat7:run   
