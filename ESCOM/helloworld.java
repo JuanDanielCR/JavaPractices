@@ -22,5 +22,26 @@ public class Main {
         char c2 = 64;
 
         System.out.println("c1: "+c1+" c2: "+c2);
+
+        boolean b2 = true;
+        //primero asignacion, luego eval
+        if(b5 = true){
+          System.out.println("b5="+b5);
+        }
+
+        //float 4 bytes
+        float f = 1.2E6f;
+        float small = (float) 1.5;
+        float maximo = Float.MAX_VALUE;
+        float maximo_desbordado = maximo*maximo;
+
+        System.out.println(maximo);
+        System.out.println(maximo_desbordado);
+
+        //En java un numero con punto decimal es double
+        double calif = 9.5;
+                double d1 = 5.3;
+        double d2 = 2.6;
+        System.out.println("d1%d2: "+d1%d2);
     }
 }
