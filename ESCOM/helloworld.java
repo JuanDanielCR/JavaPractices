@@ -42,6 +42,6 @@ public class Main {
         double calif = 9.5;
                 double d1 = 5.3;
         double d2 = 2.6;
-        System.out.println("d1%d2: "+d1%d2);
+        System.out.println("d1%d2: "+d1%d2);0
     }
 }
