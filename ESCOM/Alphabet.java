@@ -1,47 +1,37 @@
 import java.io.*;
 import java.util.Scanner;
+import java.util.Random;
+
 public class Alphabet{
   //using static because we will call them from static main()
   private static Scanner sc;
+  private static PrintWriter writer;
   private static int potencia;
   private static int potencia_final;
-  private static String[] simbolos = {"0","1"};
-  private static boolean random = false;
+  private static String[] simbolos;
+  private static boolean modo = false;
 
   public static void main(String[] args) {
     try{
       sc = new Scanner(System.in);
+      writer = new PrintWriter("combinatorics.txt", "UTF-8");
     }catch (Exception e) {
-      System.out.println("Error con escaner");
+      System.out.println("Error");
     }
-    random = seleccionarModo();
-    if(random == false){
+    modo = seleccionarModo();
+    if(modo == false){
       ejecutarManual();
     }else{
       ejecutarAutomatico();
     }
+    writer.close();
+    System.out.println("Adios!");
   }
-
-  private static int ejecutarAutomatico(){
-
-    return 1;
-  }
-
-  private static int ejecutarManual(){
-    int continuar = 1;
-    llenarUniverso();
-    do {
-
-      System.out.println("¿Desea continuar? 1: Si, 0: No");
-      continuar =  sc.nextInt();
-    } while (continuar == 1);
-    return 0;
-  }
-
+/*MODO*/
   private static boolean seleccionarModo(){
     int seleccion = 1;
     boolean modo=false;
-    System.out.println("Manual: 1, Automático: 2 ");
+    System.out.println("Manual: 1, Automatico: 2 ");
     System.out.println("Elige:");
     seleccion = sc.nextInt();
     if(seleccion == 1){
@@ -55,36 +45,77 @@ public class Alphabet{
     }
     return modo;
   }
+/*AUTOMATICO*/
+  private static int ejecutarAutomatico(){
+     simbolos = new String[] {"0","1"};
+     double aleatorio = 0;
+    do{
+      llenarUniverso(0);
+      //0.0 < aleatorio < 1.0
+      aleatorio = Math.random();
+    }while(aleatorio < 0.5);
+    return 1;
+  }
+/*MANUAL*/
+  private static int ejecutarManual(){
+    /*int alpha=0;
+    simbolos = new String[2];
+    while(alpha<2){
+      System.out.println("Simbolo:");
+      simbolos.add(sc.next().charAt(0));
+      alpha++;
+    }*/
+    simbolos = new String[] {"0","1"};
+    int continuar = 1;
+    do {
+      llenarUniverso(1);
+      System.out.println("Su resultado fue guardado en combinatorics.txt ¿Desea continuar? 1: Si, 0: No");
+      continuar =  sc.nextInt();
+    } while (continuar == 1);
+    return 0;
+  }
 
-  private static int llenarUniverso(){
-    //llama a llenarSubconjunto()
-    System.out.println("Elige la potencia final (1-1000): ");
-    potencia_final = sc.nextInt();
-    //recorrer los subconjuntos
-    for(int potencia = 0; potencia<potencia_final; potencia++){
-      llenarSubconjunto(potencia);
+/*UNIVERSO*/
+  private static int llenarUniverso(int tipo){
+    if(tipo == 1){
+      System.out.println("Elige la potencia final (1-1000): ");
+      potencia_final = sc.nextInt();
+    }else{
+        //potencia aleatoria
+        Random r = new Random();
+        potencia_final = r.nextInt(1000-0)+0;
+       System.out.println("Aleatorio potencia: " + potencia_final);
+    }
+    llenarSubconjunto();
+    return 1;
+  }
+
+  private static int llenarSubconjunto(){
+    StringBuilder combinacion = new StringBuilder("");
+    int epsilon = 222;
+    //guardarCombinacion((char)epsilon); instead of char use StringBuilder
+    for(int i = 0; i < potencia_final; i++){
+      int aux = i+1;
+      crearCombinacion(simbolos,aux,combinacion);
     }
     return 1;
   }
-  private static int llenarSubconjunto(int potencia_actual){
-    //llamado a crearCombinacion
-    String combinacion;
-    String aux;
-    //for() para recorrer las combinaciones
-    for(int i = 0; i<=Math.pow(2,potencia_actual);i++){
-      //for() para concatenar y crear la combinacion, ira poniendo caracter por caracter
-      //potencia_actual = cardinalidad de cada combinacion
-      combinacion="";
-      while(combinacion.length()<potencia_actual){
-        //aqui se llena la combinacion
-        combinacion += simbolos[0];
+
+  private static void crearCombinacion(String []base_simbolos, int ancho_combinatoria, StringBuilder salida) {
+      if (ancho_combinatoria == 0) {
+          guardarCombinacion(salida);
+      } else {
+          for (int i = 0; i < (base_simbolos.length); i++) {
+              salida.append(base_simbolos[i]);
+              crearCombinacion(base_simbolos, ancho_combinatoria - 1, salida);
+              salida.deleteCharAt(salida.length() - 1);
+          }
       }
-      guardarCombinacion(combinacion);
-    }
-    return 1;
   }
-  private static int guardarCombinacion(String combinacion_individual){
-    //Guardar combinacion en un archivo
+
+  private static int guardarCombinacion(StringBuilder combinacion_individual){
+    System.out.println(combinacion_individual);
+    writer.print("{"+combinacion_individual +"}"+ ",");
     return 1;
   }
 }
