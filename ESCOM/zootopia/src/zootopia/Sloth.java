@@ -1,14 +1,24 @@
 package zootopia;
 
 public class Sloth {
-
-    public Sloth(String name) {
-        this.name = name;
-    }
     private String name;
+    public int speed;
 
+    public Sloth() {
+        this.name = "";
+        this.speed = 0;
+    }
     @Override
     public String toString() {
         return "Sloth{" + "name=" + name + '}';
     }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
+    }
+    
 }
