@@ -1,5 +1,9 @@
-public class Main {
+import saludo.*;
+public class helloworld {
     public static void main(String []args){
+        Saludo saludo_importado = new Saludo();
+        saludo_importado.saludar();
+
         int a = 10;
         int b = 9;
         int c = 8;
@@ -42,6 +46,6 @@ public class Main {
         double calif = 9.5;
                 double d1 = 5.3;
         double d2 = 2.6;
-        System.out.println("d1%d2: "+d1%d2);0
+        System.out.println("d1%d2: "+d1%d2);
     }
 }
