@@ -92,29 +92,45 @@ public class Alphabet{
 
   private static int llenarSubconjunto(){
     StringBuilder combinacion = new StringBuilder("");
-    int epsilon = 222;
+    //int epsilon = 222;
     //guardarCombinacion((char)epsilon); instead of char use StringBuilder
     for(int i = 0; i < potencia_final; i++){
       int aux = i+1;
-      crearCombinacion(simbolos,aux,combinacion);
+      //crearCombinacionRecursiva(simbolos,aux,combinacion);
+      crearCombinacionBinario(potencia_final);
     }
     return 1;
   }
 
-  private static void crearCombinacion(String []base_simbolos, int ancho_combinatoria, StringBuilder salida) {
+  private static void crearCombinacionBinario(int potencia){
+     StringBuilder binary = new StringBuilder("");
+     for (int i = 0; i < Math.pow(2, potencia); i++) {
+       binary.insert(0, Integer.toBinaryString(i));
+       for(int j = binary.length(); j < potencia; j++) {
+           binary.insert( 0, '0' );
+       }
+       guardarCombinacion(binary);
+       System.out.print("{"+binary+"},");
+       int largo_combinacion = binary.length();
+       for(int k = 0; k < largo_combinacion; k++) {
+         binary.deleteCharAt(0);
+       }
+    }
+  }
+
+  private static void crearCombinacionRecursiva(String []base_simbolos, int ancho_combinatoria, StringBuilder salida) {
       if (ancho_combinatoria == 0) {
           guardarCombinacion(salida);
       } else {
           for (int i = 0; i < (base_simbolos.length); i++) {
               salida.append(base_simbolos[i]);
-              crearCombinacion(base_simbolos, ancho_combinatoria - 1, salida);
+              crearCombinacionRecursiva(base_simbolos, ancho_combinatoria - 1, salida);
               salida.deleteCharAt(salida.length() - 1);
           }
       }
   }
 
   private static int guardarCombinacion(StringBuilder combinacion_individual){
-    System.out.println(combinacion_individual);
     writer.print("{"+combinacion_individual +"}"+ ",");
     return 1;
   }
