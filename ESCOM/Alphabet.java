@@ -4,22 +4,24 @@ import java.util.Random;
 
 public class Alphabet{
   //using static because we will call them from static main()
-  private static Scanner sc;
-  private static PrintWriter writer;
-  private static int potencia;
-  private static int potencia_final;
-  private static String[] simbolos;
-  private static boolean modo = false;
+  private static Scanner sc; //Object for input elements
+  private static PrintWriter writer; //Object for writting on file
+  private static int potencia_final; //Our final number of alpahbets for our universe
+  private static int potencia; //Index for making each alphabet
+  private static String[] simbolos;//Array which stores our symbols
+  private static boolean is_automatico = false;// Manual/Automatic
 
   public static void main(String[] args) {
     try{
+      //Uisng 0,1 as our symbols for our universe
+      simbolos =  new String[]{"0","1"};
       sc = new Scanner(System.in);
       writer = new PrintWriter("combinatorics.txt", "UTF-8");
     }catch (Exception e) {
-      System.out.println("Error");
+      System.out.println("Error: "+e.toString());
     }
-    modo = seleccionarModo();
-    if(modo == false){
+    is_automatico = seleccionarModo();
+    if(is_automatico == false){
       ejecutarManual();
     }else{
       ejecutarAutomatico();
@@ -27,7 +29,8 @@ public class Alphabet{
     writer.close();
     System.out.println("Adios!");
   }
-/*MODO*/
+  
+/*MODO.- Use for selecting our executing mode*/
   private static boolean seleccionarModo(){
     int seleccion = 1;
     boolean modo=false;
@@ -47,7 +50,6 @@ public class Alphabet{
   }
 /*AUTOMATICO*/
   private static int ejecutarAutomatico(){
-     simbolos = new String[] {"0","1"};
      double aleatorio = 0;
     do{
       llenarUniverso(0);
@@ -58,14 +60,6 @@ public class Alphabet{
   }
 /*MANUAL*/
   private static int ejecutarManual(){
-    /*int alpha=0;
-    simbolos = new String[2];
-    while(alpha<2){
-      System.out.println("Simbolo:");
-      simbolos.add(sc.next().charAt(0));
-      alpha++;
-    }*/
-    simbolos = new String[] {"0","1"};
     int continuar = 1;
     do {
       llenarUniverso(1);
@@ -81,40 +75,47 @@ public class Alphabet{
       System.out.println("Elige la potencia final (1-1000): ");
       potencia_final = sc.nextInt();
     }else{
-        //potencia aleatoria
-        Random r = new Random();
-        potencia_final = r.nextInt(1000-0)+0;
-       System.out.println("Aleatorio potencia: " + potencia_final);
+      //potencia aleatoria
+      Random r = new Random();
+      potencia_final = r.nextInt(1000-0)+0;
+      System.out.println("Aleatorio potencia: " + potencia_final);
     }
+    writer.print("{"+(char)216+"}"); //vacio
     llenarSubconjunto();
     return 1;
   }
 
   private static int llenarSubconjunto(){
     StringBuilder combinacion = new StringBuilder("");
-    //int epsilon = 222;
-    //guardarCombinacion((char)epsilon); instead of char use StringBuilder
-    for(int i = 0; i < potencia_final; i++){
-      int aux = i+1;
-      //crearCombinacionRecursiva(simbolos,aux,combinacion);
-      crearCombinacionBinario(potencia_final);
-    }
+    int modo_calculo=0;
+    System.out.println("Modo de calculo (0)-Recursiva, (1)-Binario: ");
+    modo_calculo = sc.nextInt();
+
+      if(modo_calculo==0){
+        for(int i = 0; i < potencia_final; i++){
+          int aux = i+1;
+          crearCombinacionRecursiva(simbolos,aux,combinacion);
+        }
+      }else{
+        crearCombinacionBinario(potencia_final, combinacion);
+      }
     return 1;
   }
 
-  private static void crearCombinacionBinario(int potencia){
-     StringBuilder binary = new StringBuilder("");
-     for (int i = 0; i < Math.pow(2, potencia); i++) {
-       binary.insert(0, Integer.toBinaryString(i));
-       for(int j = binary.length(); j < potencia; j++) {
-           binary.insert( 0, '0' );
-       }
-       guardarCombinacion(binary);
-       System.out.print("{"+binary+"},");
-       int largo_combinacion = binary.length();
-       for(int k = 0; k < largo_combinacion; k++) {
-         binary.deleteCharAt(0);
-       }
+  private static void crearCombinacionBinario(int potencia, StringBuilder combinacion){
+    for(int potencia_actual = 1;potencia_actual<=potencia;potencia_actual++){
+      for (int i = 0; i < Math.pow(2, potencia_actual); i++) {
+        combinacion.insert(0, Integer.toBinaryString(i));
+        for(int j = combinacion.length(); j < potencia_actual; j++) {
+          combinacion.insert( 0, '0' );
+        }
+        guardarCombinacion(combinacion);
+        //free our String Builder
+        int largo_combinacion = combinacion.length();
+        for(int k = 0; k < largo_combinacion; k++) {
+            combinacion.deleteCharAt(0);
+        }
+      }
     }
   }
 
@@ -125,13 +126,14 @@ public class Alphabet{
           for (int i = 0; i < (base_simbolos.length); i++) {
               salida.append(base_simbolos[i]);
               crearCombinacionRecursiva(base_simbolos, ancho_combinatoria - 1, salida);
+              //free StringBuilder which saves the combination
               salida.deleteCharAt(salida.length() - 1);
           }
       }
   }
 
   private static int guardarCombinacion(StringBuilder combinacion_individual){
-    writer.print("{"+combinacion_individual +"}"+ ",");
+    writer.print(",{"+combinacion_individual +"}");
     return 1;
   }
 }
