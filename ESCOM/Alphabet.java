@@ -112,7 +112,7 @@ public class Alphabet{
     return 1;
   }
 
-//Binary mode for combinations
+//Binary mode for combinations only for a universe with [0,1]
   private static void crearCombinacionBinario(int potencia, StringBuilder combinacion){
     //Creating each subconjunt separated in each for iteration
     for(int potencia_actual = 1;potencia_actual<=potencia;potencia_actual++){
