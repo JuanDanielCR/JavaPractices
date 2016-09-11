@@ -18,7 +18,7 @@ public class TeoriaPrimos {
         escuelas_primas = new ArrayList<>();
         
         //Instancias
-        Archivos archivos = new Archivos();
+        ArchivosPrimos archivos = new ArchivosPrimos();
         Binario binario = new Binario();
         CodigoASCII codigos = new CodigoASCII();
         NumerosPrimos numeros= new NumerosPrimos();

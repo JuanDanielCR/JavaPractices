@@ -1,4 +1,4 @@
-package automata.protocolo;
+package automata.paridad;
 import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -7,7 +7,7 @@ import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 
-public class Archivos{
+public class ArchivosParidad{
     private PrintWriter escritor;
     private BufferedReader buffer_lectura;
     private InputStreamReader lector;

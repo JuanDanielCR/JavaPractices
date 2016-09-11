@@ -1,4 +1,4 @@
-package teoriaprimos;
+package automata.protocolo;
 import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -7,7 +7,7 @@ import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 
-public class Archivos{
+public class ArchivosProtocolo{
     private PrintWriter escritor;
     private BufferedReader buffer_lectura;
     private InputStreamReader lector;
@@ -37,19 +37,6 @@ public class Archivos{
     
     public void setElemento_escrito(String elemento_guardado) {
         this.elemento_escrito = elemento_guardado;
-        guardar_elemento(false);
-    }
-    
-    public void setElemento_escrito(String escuela, String ascii, String primo){
-        this.elemento_escrito = escuela;
-        for(int i = escuela.length(); i<100;i++){
-            this.elemento_escrito+=" ";
-        }
-        this.elemento_escrito += ascii;
-        for(int j = 0; j<7;j++){
-            this.elemento_escrito+=" ";
-        }
-        this.elemento_escrito += primo;
         guardar_elemento();
     }
 
@@ -61,11 +48,6 @@ public class Archivos{
         lineas_leidas= new ArrayList();
         try {
             while((elemento_leido=buffer_lectura.readLine())!=null){
-                //Deleting begin of file ascii
-                if (elemento_leido.charAt(0) == '\uFEFF')
-                    {
-                        elemento_leido = elemento_leido.substring(1);
-                    }
                lineas_leidas.add(elemento_leido);
             }
             buffer_lectura.close();
@@ -82,15 +64,9 @@ public class Archivos{
             System.out.println(e.toString());
         }
     }
-        private void guardar_elemento(boolean enter){
-        try{
-            escritor.write(elemento_escrito+"");
-        }catch(Exception e){
-            System.out.println(e.toString());
-        }
-    }
         
     public void guardar_archivo(){
+        elemento_escrito ="";
         escritor.close();
     }
 }
