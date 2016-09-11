@@ -20,7 +20,7 @@ public class Archivos{
         try {
             escritor = new PrintWriter(archivo_escritura);
         } catch (Exception e) {
-            System.out.println("Erro en el rescritor");
+            System.out.println("Error en el rescritor");
         }
     }
     public int crear_lector(String archivo_lectura){
@@ -61,18 +61,13 @@ public class Archivos{
         lineas_leidas= new ArrayList();
         try {
             while((elemento_leido=buffer_lectura.readLine())!=null){
+                //Deleting begin of file ascii
                 if (elemento_leido.charAt(0) == '\uFEFF')
                     {
                         elemento_leido = elemento_leido.substring(1);
                     }
                lineas_leidas.add(elemento_leido);
             }
-//while((caracter_leido = buffer_lectura.read())!=-1){
-//      while((caracter_leido=buffer_lectura.read())!= 10){
-//            elemento_leido = elemento_leido + (char)caracter_leido;
-//      }
-//      System.out.println(elemento_leido);
-//}
             buffer_lectura.close();
         } catch (Exception e) {
             System.out.println("Error en lectura: "+ e.toString());

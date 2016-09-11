@@ -13,8 +13,8 @@ public class TeoriaPrimos {
         String binarios;
         //Cadena booleana
         String es_primo = "No primo";
-        ArrayList escuelas;
-        ArrayList escuelas_primas;
+        ArrayList<String> escuelas;
+        ArrayList<String> escuelas_primas;
         escuelas_primas = new ArrayList<>();
         
         //Instancias
@@ -23,8 +23,11 @@ public class TeoriaPrimos {
         CodigoASCII codigos = new CodigoASCII();
         NumerosPrimos numeros= new NumerosPrimos();
         
+        System.out.println("Este programa corre en modo automático");
+        
         //Abriendo el archivo de lectura
         archivos.crear_lector("archivos/escuelas.txt");
+        System.out.println("Leyendo la ruta relativa  archivos/escuelas.txt");
         //Leyendo escuelas
         archivos.leer_elementos();
         //Guardando las escuelas y cerrando bufferedReader
@@ -34,9 +37,9 @@ public class TeoriaPrimos {
         //Creando la cabecera del archivo de salida
         archivos.setElemento_escrito("Escuelas del Instituto Politécnico Nacional "
                 + "                                                        ASCII      Primo");
-        for (Object escuela : escuelas) {
+        for (String escuela : escuelas) {
             //Enviando escuela para obtener ASCII
-            codigos.setCadena_entrada((String) escuela);
+            codigos.setCadena_entrada(escuela);
             //Recibiendo el valor de la suma en ASCII
             suma_ascii = codigos.getCadena_ascii();
             //Enviando la cadena ascci para evaluar si es primo o no
@@ -45,7 +48,7 @@ public class TeoriaPrimos {
             primo=numeros.is_primo();
             if(primo == true){
                 //Enviando la cadena original para obtener el binario de un primo
-                binario.setCadena_entrada((String) escuela);
+                binario.setCadena_entrada(escuela);
                 //Recibiendo un String con el binario de la cadena
                 binarios = binario.getBinario();
                 //Guardando los binarios para imprimir al final
@@ -53,15 +56,16 @@ public class TeoriaPrimos {
                 es_primo = "Primo";
             }
             //Enviando la cadena para crear el archivo
-            archivos.setElemento_escrito((String)escuela, Integer.toString(suma_ascii), es_primo);
+            archivos.setElemento_escrito(escuela, Integer.toString(suma_ascii), es_primo);
             es_primo = "No Primo";
         }
         //Guardando lo binarios que sean primos
         archivos.setElemento_escrito("Binarios primos:\n");
-        for(Object escuela_primaria : escuelas_primas){
-            archivos.setElemento_escrito("{"+(String) escuela_primaria+"}\n");
+        for(String escuela_primaria : escuelas_primas){
+            archivos.setElemento_escrito("{"+ escuela_primaria+"}\n");
         }
         //Guardando el archivo
         archivos.guardar_archivo();
+        System.out.println("Resultado guardado en escuelas_primas.txt \nAdios!");
     }
 }
