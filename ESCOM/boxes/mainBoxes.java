@@ -1,16 +1,31 @@
-  import java.util.Scanner;
+import java.util.Scanner;
 
 public class mainBoxes{
 
   public static void main(String args[]){
-    Scanner sc = new Scanner(System.in);
+    boolean dateFormat = false;
+    boolean dateValue = false;
     int continua;
     int bags;
     int modo;
+    Scanner sc = new Scanner(System.in);
+    String date;
     do{
       System.out.println("Bags: ");
       bags = sc.nextInt();
       order orden = new order(bags);
+      //Date Format
+      do{
+        System.out.println("Fecha order: ");
+        date = sc.next();
+        dateFormat = orden.setDateFormatFilter(date);
+        System.out.println("Correct Format: "+dateFormat);
+        if(dateFormat == true){
+          dateValue = orden.setDateValueFilter(date);
+          System.out.println("Correct Range "+dateValue);
+        }
+      }while(dateFormat == false || dateValue == false);
+      
       System.out.println("Modo 1:Recursivo, 2:Looping");
       modo = sc.nextInt();
       if(modo == 1){

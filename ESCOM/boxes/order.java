@@ -1,3 +1,8 @@
+import java.util.Calendar;
+import java.util.regex.*;
+import java.text.SimpleDateFormat;
+import java.util.Locale;
+
 public class order{
   public int bags;
   private int largeBox;
@@ -7,6 +12,13 @@ public class order{
   private long startTime;
   private long endTime;
   private long duration;
+
+  private String year;
+  private String month;
+  private String day;
+
+  private String orderDate;
+  private String arriveDate;
 
   private final static double BAG_COST = 5.50;
   private final static double L_BOX_COST = 2.0;
@@ -24,7 +36,6 @@ public class order{
     smallBox = 0;
     startTime = 0;
     endTime = 0;
-    duration = 0;
   }
   
   public void boxesReport(int tipo){
@@ -52,6 +63,8 @@ public class order{
     System.out.println("Boxes Used:");
     System.out.println("Large: "+largeBox+" Medium : "+mediumBox+" Small: "+smallBox);
     System.out.println("Your total cost is: $"+totalCosto);
+    System.out.println("Date of Order: " + orderDate);
+    System.out.println("Expected date of arrival: " + arriveDate);
   }
 
   private void totalCosto(){
@@ -116,5 +129,44 @@ public class order{
       }
     }
   }
-
+  public boolean setDateFormatFilter(String date){
+    boolean correctFormatDate = false;
+    String pattern = "^[0-9]{2}/[0-9]{2}/[0-9]{4}$";
+    Pattern r = Pattern.compile(pattern);
+    Matcher m = r.matcher(date);
+    if(m.find()){
+      setDateValueFilter(date);
+      correctFormatDate = true;
+    } 
+    return correctFormatDate;
+  }
+  public boolean setDateValueFilter(String date){
+    boolean correctValueDate = false;
+      String[] parts = date.split("/");
+      int year_validation = Integer.parseInt(parts[2]);
+      int month_validation = Integer.parseInt(parts[0]);
+      int day_validation = Integer.parseInt(parts[1]);
+      if(year_validation<=2016 && 0<month_validation && month_validation<13 && 0<day_validation && day_validation < 32){
+        year = parts[2];
+        month = parts[1];
+        day = parts[0];
+        setDates(day,month,year);
+        correctValueDate = true;
+      }
+      parts =  null;
+    return correctValueDate;
+  }
+  private void setDates(String year, String month, String day){
+    SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
+    SimpleDateFormat sdf_out = new SimpleDateFormat("MMMM dd, yyyy", Locale.US);
+    Calendar dateManager = Calendar.getInstance();
+    try{
+      dateManager.setTime(sdf.parse(year+"/"+month+"/"+day));
+      orderDate = sdf_out.format(dateManager.getTime());
+      dateManager.add(Calendar.DATE, 14);  // number of days to add
+      arriveDate = sdf_out.format(dateManager.getTime());  // dt is now the new date
+    }catch(Exception e){
+       System.out.println(e);
+    }
+  }
 }
