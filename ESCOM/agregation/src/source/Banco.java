@@ -22,11 +22,16 @@ public class Banco {
 		return numClientes;
 	}
 	public Cliente obtenerCliente(int indice){
-		return clientes.get(indice);
+		if(indice >= 0 && indice < clientes.size()){
+			return clientes.get(indice);
+		}
+		return null;
 	}
 	public void imprimirClientes(){
 		for(int i=0; i<numClientes;i++){
-			System.out.println(clientes.get(i).toString());
+			System.out.println("Nombre: "+clientes.get(i).obtenerNombre());
+			System.out.println("Cuenta: "+clientes.get(i).obtenerCuenta());
+			System.out.println("Saldo: "+clientes.get(i).obtenerCuenta().consultar());
 		}
 	}
 }
