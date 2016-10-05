@@ -10,6 +10,9 @@ public class CuentaDeCheques extends Cuenta{
 	public CuentaDeCheques(double saldoIni){
 			super(saldoIni);
 	}
+	public double obtenerMontoSobregiro(){
+		return montoSobregiro;
+	}
 	@Override
 	public void retirar(double monto){
 		if( monto > 0){

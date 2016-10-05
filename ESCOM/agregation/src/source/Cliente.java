@@ -1,7 +1,5 @@
 package source;
 
-import java.util.Random;
-
 public class Cliente {
 	private String nombre;
 	/**Agregation of Cuenta class with cardinality = 1*/
@@ -10,8 +8,8 @@ public class Cliente {
 	
 	public Cliente(String nom){
 		this.nombre = nom;
-		Random r = new Random();
-		this.numCuenta = ""+r.nextInt();
+		//Random r = new Random();
+		//this.numCuenta = ""+r.nextInt();
 	}
 	public String obtenerNombre(){
 		return nombre;
