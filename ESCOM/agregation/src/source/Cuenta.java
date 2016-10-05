@@ -1,7 +1,7 @@
 package source;
 
 public class Cuenta {
-	private double saldo;
+	protected double saldo;
 	public Cuenta(double saldoInicial){
 		this.saldo = saldoInicial;
 	}

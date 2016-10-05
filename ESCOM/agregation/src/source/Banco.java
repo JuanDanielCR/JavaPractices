@@ -12,6 +12,9 @@ public class Banco {
 	public void agregaCliente(String nom, String numCta){
 		Cliente cli = new Cliente(nom);
 		cli.crearNumCuenta(numCta);
+		Cuenta cuenta = new Cuenta(0);
+		cli.establecerCuenta(cuenta);
+		
 		clientes.add(cli);
 		numClientes++;
 	}
