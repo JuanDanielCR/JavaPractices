@@ -9,7 +9,7 @@ public class CuentaDeAhorros extends Cuenta{
 	}
 	
 	@Override
-	public void consultar(){
-	
+	public double consultar(){
+		return saldo * tasaDeInteres;
 	}
 }
