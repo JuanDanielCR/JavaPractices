@@ -1,21 +1,26 @@
 package source;
 
 public class Cliente {
-	private double saldo;
-	public Cliente(double saldoInicial){
-		this.saldo = saldoInicial;
+	private String nombre;
+	/**Agregation of Cuenta class with cardinality = 1*/
+	private Cuenta cuenta;
+	private String numCuenta;
+	public Cliente(String nom){
+		this.nombre = nom;
 	}
-	public double consultar(){
-		return saldo;
+	public String obtenerNombre(){
+		return nombre;
 	}
-	public void depositar(double monto){
-		if(monto>0){
-			saldo += monto;
-		}
+	public Cuenta obtenerCuenta(){
+		return cuenta;
 	}
-	public void retirar(double monto){
-		if(monto <= saldo){
-			saldo -= monto;
-		}
+	public void establecerCuenta(Cuenta cta){
+		this.cuenta = cta;
+	}
+	public String obtenerNumCta(){
+		return numCuenta;
+	}
+	public void crearNumCuenta(String num){
+		this.numCuenta = num;
 	}
 }
