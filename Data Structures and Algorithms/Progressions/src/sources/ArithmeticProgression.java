@@ -1,6 +1,6 @@
 package sources;
 
-public class ArithmeticProgression extends Progression{
+public class ArithmeticProgression extends AbstractProgression{
 	protected long increment;
 	//Constructors for starting point and increment
 	public ArithmeticProgression(){

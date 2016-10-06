@@ -8,7 +8,7 @@ public class CuentaDeAhorros extends Cuenta{
 		this.tasaDeInteres = tasaInteres;
 	}
 	
-	@Override
+	
 	public double consultar(){
 		return saldo * tasaDeInteres;
 	}

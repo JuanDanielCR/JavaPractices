@@ -1,6 +1,6 @@
 package sources;
 
-public class FibonacciProgression extends Progression{
+public class FibonacciProgression extends AbstractProgression{
 	protected long prev;
 	public FibonacciProgression(){
 		super(0);

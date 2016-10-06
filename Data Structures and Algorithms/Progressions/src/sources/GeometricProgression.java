@@ -1,6 +1,6 @@
 package sources;
 
-public class GeometricProgression extends Progression{
+public class GeometricProgression extends AbstractProgression{
 	protected long base;
 	public GeometricProgression(){
 		super(1);

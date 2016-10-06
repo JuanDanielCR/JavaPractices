@@ -3,7 +3,7 @@ import sources.*;
 /** Test program for the progression hierarchy. */
 public class TestProgressions {
 	public static void main(String[ ] args) {
-		Progression prog;
+		AbstractProgression prog;
 		 // test ArithmeticProgression
 		 System.out.print("Arithmetic progression with default increment: ");
 		 prog = new ArithmeticProgression( );
