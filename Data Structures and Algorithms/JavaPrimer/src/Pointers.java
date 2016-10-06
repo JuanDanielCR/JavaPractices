@@ -24,7 +24,8 @@ public class Pointers {
 		
 		// a: 0
 		foo(a);
-		// a: 1 not a: 2 as would expected
+		// a: 1 not a: 2 as would expected in pass by reference
+		System.out.println(a.getCounter());
 		
 		//Pointers are also passed by value, this means whit a copy
 		//a: 1
@@ -50,6 +51,8 @@ public class Pointers {
 		//now a points to another place just like C, in C++ the original 'a' object would change its allocation
 		a  = new Counter(); //in pass by reference the original allocation would change, and this result would be shown outside this function
 		a.aumentarCounter();
+		a.aumentarCounter();
+		System.out.println(a.getCounter());
 	}
 	
 	public static void badReset(Counter copy){
