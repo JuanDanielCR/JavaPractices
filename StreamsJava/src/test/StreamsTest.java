@@ -16,5 +16,9 @@ public class StreamsTest {
 		BufferedStreams copyBuffered = new BufferedStreams("Xanadu.txt", "OutBuffered.txt");
 		copyBuffered.copyBufferedChars();
 		copyBuffered.closeBufferedStream();
+		
+		//Scanning
+		Scanning sc = new Scanning();
+		sc.getCharacter();
 	}
 }

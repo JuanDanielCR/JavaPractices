@@ -7,14 +7,16 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 public class BufferedStreams {
-	BufferedReader inputStream = null;
-	PrintWriter outputStream = null;
+	private BufferedReader inputStream = null;
+	private PrintWriter outputStream = null;
+	//BufferedWriter outputStream = null;
 	int c;
 	public BufferedStreams(String input, String output){
 		try{
 			this.c =0;
 			inputStream = new BufferedReader(new FileReader(input));
 			outputStream = new PrintWriter(new FileWriter(output));
+			//outputStream = new BufferedWriter(new FileWriter(output));		
 		}catch (IOException e) {
 			e.printStackTrace();
 		}

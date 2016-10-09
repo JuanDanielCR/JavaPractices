@@ -6,8 +6,8 @@ import java.io.IOException;
 
 public class CharacterStream {
 	//File Character stream especial classes
-	FileReader inputCharacterStream =  null;
-	FileWriter outCharacterStream = null;
+	private FileReader inputCharacterStream =  null;
+	private FileWriter outCharacterStream = null;
 	int c;
 	
 	public CharacterStream(String input, String output){

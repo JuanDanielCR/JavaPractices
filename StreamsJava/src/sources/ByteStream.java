@@ -8,8 +8,8 @@ import java.io.IOException;
 public class ByteStream {
 	//All byte stream classes are descended from InputStream and OutputStream 
 	//File byte stream specialized classes.
-	FileInputStream in =  null;
-	FileOutputStream out = null;
+	private FileInputStream in =  null;
+	private FileOutputStream out = null;
 	int c;
 	//Constructor
 	public ByteStream(String input, String output){
