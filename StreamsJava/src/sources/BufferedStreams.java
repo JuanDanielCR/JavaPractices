@@ -9,6 +9,7 @@ import java.io.PrintWriter;
 public class BufferedStreams {
 	private BufferedReader inputStream = null;
 	private PrintWriter outputStream = null;
+
 	//BufferedWriter outputStream = null;
 	int c;
 	public BufferedStreams(String input, String output){
