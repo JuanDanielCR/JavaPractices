@@ -6,5 +6,11 @@ public class StreamsTest {
 		ByteStream copyBytes = new ByteStream("Xanadu.txt", "OutBytes.txt");
 		copyBytes.copyBytes();
 		copyBytes.closeBytesStream();
+		
+		//CharacterStream
+		CharacterStream copyChars = new CharacterStream("Xanadu.txt", "OutChars.txt");
+		copyChars.copyCharacters();
+		copyChars.closeCharacterStream();
+		
 	}
 }
