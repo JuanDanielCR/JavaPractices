@@ -9,13 +9,17 @@ public class Banco {
 		this.numClientes = 0;
 		this.clientes = new ArrayList<Cliente>();
 	}
-	public void agregaCliente(String nom, String numCta){
+	/*public void agregaCliente(String nom, String numCta){
 		Cliente cli = new Cliente(nom);
 		cli.crearNumCuenta(numCta);
 		Cuenta cuenta = new Cuenta(0);
 		cli.establecerCuenta(cuenta);
 		
 		clientes.add(cli);
+		numClientes++;
+	}*/
+	public void agregaCliente(Cliente cliente){
+		clientes.add(cliente);
 		numClientes++;
 	}
 	public int obtenerNumCliente(){
@@ -30,8 +34,10 @@ public class Banco {
 	public void imprimirClientes(){
 		for(int i=0; i<numClientes;i++){
 			System.out.println("Nombre: "+clientes.get(i).obtenerNombre());
-			System.out.println("Cuenta: "+clientes.get(i).obtenerCuenta());
-			System.out.println("Saldo: "+clientes.get(i).obtenerCuenta().consultar());
+			if(clientes.get(i).obtenerCuenta()!=null){
+				System.out.println("Cuenta: "+clientes.get(i).obtenerCuenta());
+				System.out.println("Saldo: "+clientes.get(i).obtenerCuenta().consultar());
+			}
 		}
 	}
 }

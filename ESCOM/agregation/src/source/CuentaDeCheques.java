@@ -9,6 +9,7 @@ public class CuentaDeCheques extends Cuenta{
 	}
 	public CuentaDeCheques(double saldoIni){
 			super(saldoIni);
+			this.montoSobregiro = 10000;
 	}
 	public double obtenerMontoSobregiro(){
 		return montoSobregiro;
@@ -16,11 +17,11 @@ public class CuentaDeCheques extends Cuenta{
 	@Override
 	public void retirar(double monto){
 		if( monto > 0){
-			if(monto <= saldo){
-				saldo -= monto;
+			double aux = saldo-monto;
+			if(Math.abs(aux)<=montoSobregiro){
+				saldo-=monto;
 			}else{
-				montoSobregiro = monto - saldo;
-				saldo = 0;
+				System.out.println("Monto de sobregiro excedido");
 			}
 		}
 	}
