@@ -37,14 +37,14 @@ public class Node<T>{
 	
 	//Set a children TO a node
 	public void addChild(Node<T> child){
-		child.setParent(this); //this, refers to the current object: parent.addChild();
+		child.parent = this; //this, refers to the current object: parent.addChild();
 		this.childs.add(child);
 	}
 	
 	//Adding a child TO a parent
 	public void addChild(T content){
 		Node<T> child = new Node<T>(content);
-		child.setParent(this);
+		child.parent = (this);
 		this.childs.add(child);
 	}
 	
@@ -55,5 +55,4 @@ public class Node<T>{
         else 
             return false;
     }
-	
 }//end of nested
