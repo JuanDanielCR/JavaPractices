@@ -11,7 +11,7 @@ public class InsertionTest {
 		System.out.println(" ");
 		InsertionSorting.insertionSort(data);
 		for(int i=0; i<1000; i++){
-			System.out.print(data[i]);
+			System.out.print(data[i]); 
 		}
 	}
 }
