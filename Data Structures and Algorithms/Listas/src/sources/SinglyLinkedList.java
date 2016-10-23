@@ -22,7 +22,7 @@ public class SinglyLinkedList<E> {
 	}
 	/**Add a new head*/
 	public void addFirst(E e){
-		head =  new Node<E>(e, null);
+		head =  new Node<E>(e, head);
 		if(size == 0)
 			tail =  head;
 		size++;
@@ -38,6 +38,30 @@ public class SinglyLinkedList<E> {
 		tail = newest;
 		size++;
 	}
+	/**Add an element into an specific position except for position 1*/
+	public void addPosition(E e, int position){
+		Node<E> newest =  new Node<E>(e, null);
+		Node<E> aux = head;
+		int aux_pos = 1;
+		if(isEmpty()){
+			head = newest;
+			tail = head;
+		}else{
+			if(position<=size && position>0){
+				while(aux_pos!=position){
+					aux_pos++;
+					if(aux_pos!=position)
+						aux = aux.next;
+				}
+				Node<E> siguiente = aux.next;
+				aux.next = newest;
+				newest.next =  siguiente;
+			}else{
+				System.out.println("Not a valid position");
+			}
+		}
+		size++;
+	}
 	/**Remove the first element*/
 	public E removeFirst(){
 		if(isEmpty()){
@@ -50,6 +74,15 @@ public class SinglyLinkedList<E> {
 			tail = null;
 		}
 		return answer;
+	}
+	/**Show all the elements from a list*/
+	public void showElements(){
+		Node<E> aux;
+		aux = head;
+		while(aux.next != null){
+			System.out.println(aux.getElement());
+			aux = aux.getNext();
+		}
 	}
 	/**Nested node*/
 	private static class Node<E>{
