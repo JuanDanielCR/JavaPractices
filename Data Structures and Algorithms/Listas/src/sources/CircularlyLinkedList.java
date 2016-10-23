@@ -9,11 +9,11 @@ public class CircularlyLinkedList<E> {
 	/**Accesors*/
 	public int getSize() {return size;}
 	private boolean isEmpty(){return size == 0;}
-	private E getFirst() {
+	public E getFirst() {
 		if(isEmpty()) return null;
 		return tail.getNext().getElement();
 	}
-	private E getLast(){
+	public E getLast(){
 		if(isEmpty()) return null;
 		return tail.getElement();
 	}

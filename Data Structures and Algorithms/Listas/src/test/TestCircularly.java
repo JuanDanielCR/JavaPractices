@@ -20,7 +20,13 @@ public class TestCircularly {
 		System.out.println(list.getSize());
 		list.addFirst(10);
 		System.out.println(list.getSize());
+		System.out.println("Head: "+list.getFirst());
 		list.rotate();
 		System.out.println("Rote");
+		System.out.println("Tail: "+list.getLast());
+		System.out.println("Head: "+list.getFirst());
+		list.rotate();
+		System.out.println("Rote");
+		System.out.println("Tail: "+list.getLast());
 	}
 }
