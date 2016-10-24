@@ -102,4 +102,20 @@ public class SinglyLinkedList<E> {
 			this.next = next;
 		}
 	}
+	/**Overriding equals method*/
+	@Override
+	public boolean equals(Object o){
+		if(o==null)return false;//not null
+		if(this.getClass()!=o.getClass())return false; //different classes
+		SinglyLinkedList other = (SinglyLinkedList)o; //if same classes, cast th other object to SinglyLinkedList
+		if(this.size!=other.size)return false; //same size
+		Node walkA = this.head;
+		Node walkB = other.head;
+		while(walkA != null){
+			if(!walkA.getElement().equals(walkB.getElement())) return false; //Comparing each individual element with their own equals method
+			walkA = walkA.getNext();
+			walkB = walkB.getNext();
+		}
+		return true; //If everything is correct, they are equal
+	}
 }
