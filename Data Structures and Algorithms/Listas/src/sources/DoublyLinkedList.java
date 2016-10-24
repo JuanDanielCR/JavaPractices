@@ -26,7 +26,7 @@ public class DoublyLinkedList<E> {
 		addBetween(e,header,header.getNext());
 	}
 	public void addLast(E e){
-		addBetween(e,trailer,trailer.getPrev());
+		addBetween(e,trailer.getPrev(),trailer);
 	}
 	private void addBetween(E e, Node<E>predecessor, Node<E>sucessor){
 		Node<E> newest = new Node<>(e,predecessor,sucessor);

@@ -26,5 +26,6 @@ public class TestSingly {
 		list.addPosition(10000, 5);
 		list.removeFirst();
 		list.showElements();
+		System.out.println("First: "+list.first());
 	}
 }
