@@ -1,10 +1,8 @@
 package sources;
 
-import com.sun.java.swing.plaf.windows.WindowsBorders;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import javax.swing.Icon;
 import javax.swing.JOptionPane;
@@ -15,7 +13,6 @@ public class Marcador extends javax.swing.JFrame implements ActionListener{
     public Marcador() {
         initComponents();
         System.out.println("Yeah!");
-        jButton1.addActionListener(this);
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -32,6 +29,11 @@ public class Marcador extends javax.swing.JFrame implements ActionListener{
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jButton1.setText("Mostrar Ganador");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -146,6 +148,10 @@ public class Marcador extends javax.swing.JFrame implements ActionListener{
     private void jTextFieldChivasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldChivasActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldChivasActionPerformed
+
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1MouseClicked
 
     /**
      * @param args the command line arguments
