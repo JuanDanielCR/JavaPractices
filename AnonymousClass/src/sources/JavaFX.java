@@ -64,7 +64,7 @@ public class JavaFX extends Application{
      grid.getChildren().add(submit);
      
      //Use of another anonymous class, but with a lambda expression
-     submit.setOnAction(e -> label.setText("Enviado"));
+     submit.setOnAction(e -> changeText());
      
      GridPane.setConstraints(label, 0, 1);
      GridPane.setColumnSpan(label, 3);
@@ -72,6 +72,9 @@ public class JavaFX extends Application{
      
      scene.setRoot(grid);
      primaryStage.show();
+	}
+	public void changeText(){
+		label.setText("Enviado");
 	}
 	public static void main(String[] args) {
 	    launch(args);
