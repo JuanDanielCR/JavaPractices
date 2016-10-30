@@ -183,7 +183,7 @@ public class Marcador extends javax.swing.JFrame implements ActionListener{
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Marcador().setVisible(true);
+                new Marcador().setVisible(true); //El objeto marcador extiende de JFrame, por eso podemos aplicar setVisible()
             }
         });
     }
