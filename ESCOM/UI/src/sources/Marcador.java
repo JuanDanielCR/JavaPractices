@@ -1,15 +1,11 @@
 package sources;
 
 import java.awt.Color;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.MouseListener;
-import javax.swing.Icon;
 import javax.swing.JOptionPane;
 import javax.swing.border.Border;
 import javax.swing.border.LineBorder;
 
-public class Marcador extends javax.swing.JFrame implements ActionListener{
+public class Marcador extends javax.swing.JFrame{
     public Marcador() {
         initComponents();
         System.out.println("Yeah!");
@@ -198,8 +194,4 @@ public class Marcador extends javax.swing.JFrame implements ActionListener{
     private javax.swing.JTextField jTextFieldChivas;
     // End of variables declaration//GEN-END:variables
 
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        
-    }
 }
