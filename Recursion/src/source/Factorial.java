@@ -22,6 +22,7 @@ public class Factorial {
 		}
 		return n.multiply(bigFactorial(n.subtract(BigInteger.ONE)));
 	} 
+	//Big decimal
 	public static BigDecimal bigFactorial(BigDecimal n)throws IllegalArgumentException{
 		if(n.compareTo(BigDecimal.ZERO) == -1){
 			throw new IllegalArgumentException();
@@ -30,4 +31,15 @@ public class Factorial {
 		}
 		return n.multiply(bigFactorial(n.subtract(BigDecimal.ONE)));
 	} 
+	
+	//Change recursion for a loop
+	public static void factorialLoop(int n){
+		BigDecimal fact = BigDecimal.valueOf(1);
+	    for (int i = 1; i <= n; i++)
+	        fact = fact.multiply(BigDecimal.valueOf(i));
+	    //Code for output
+	    StringBuilder big_result = new StringBuilder(fact.toString());
+	    BufferedStreams file = new BufferedStreams("factorials_loop.txt");
+		file.writeFile(big_result);
+	}
 }
