@@ -39,6 +39,7 @@ public class testSamples {
 		for(int i = 0; i<10; i++)
 			array[i]=i;
 		int numero = 90000;
-		System.out.println("Numero: "+numero+" esta: "+BinarySearch.binarySearch(array, numero, 0, 9));
+		System.out.println("Numero: "+numero+" esta: "+BinarySearch.binarySearch(array, numero, 0, array.length-1));
+		System.out.println("Numero: "+numero+" esta: "+BinarySearch.loopBinaryS(array, numero));
 	}
 }
