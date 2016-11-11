@@ -1,0 +1,3 @@
+Total: 70
+Trump: 57
+Clinton: 13
