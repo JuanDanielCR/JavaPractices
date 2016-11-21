@@ -10,6 +10,7 @@ import javax.swing.JMenuBar;
 
 public class SimpleJFrame{
 	private static void createAndShowGUI(){
+		System.out.println(Thread.currentThread().getName());
 		//Create and set up the window
 		JFrame jframe = new JFrame();
 		jframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -44,6 +45,7 @@ public class SimpleJFrame{
 				createAndShowGUI();
 			}
 		});
+		System.out.println(Thread.currentThread().getName());
 	}
 }
 //https://docs.oracle.com/javase/8/javafx/interoperability-tutorial/swing-fx-interoperability.htm
