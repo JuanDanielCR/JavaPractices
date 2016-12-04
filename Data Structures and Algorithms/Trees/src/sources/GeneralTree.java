@@ -1,8 +1,5 @@
 package sources;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Queue;
 
 public class GeneralTree <T>{
 	protected Node<T> root = null;

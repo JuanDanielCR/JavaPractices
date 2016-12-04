@@ -26,6 +26,7 @@ public class BufferedStreams {
 	public void copyBufferedChars(){
 		try{
 			while((c = inputStream.read())!=-1){
+				System.out.println(c);
 				outputStream.write(c);
 				outputStream.flush();
 			}
