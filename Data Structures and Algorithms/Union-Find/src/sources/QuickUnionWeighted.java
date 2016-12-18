@@ -25,7 +25,7 @@ public class QuickUnionWeighted{
 		return p;
 	}
 	
-	public boolean find(int p, int q){
+	public boolean isConnected(int p, int q){
 		return root(p) == root(q);
 	}
 	//Depth of any node is at most lg N, where lg = log base 2

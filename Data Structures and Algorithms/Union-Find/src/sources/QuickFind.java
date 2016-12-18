@@ -11,10 +11,10 @@ public class QuickFind {
 	public QuickFind(int l){
 		ids =  new int[l];
 		for(int i = 0; i < ids.length; i++)
-			ids[i] = l;
+			ids[i] = i;
 	}
 	//2 array accesses
-	public boolean find(int p, int q){
+	public boolean isConnected(int p, int q){
 		return ids[p] == ids[q];
 	}
 	//2N+2 array accesses at most

@@ -19,7 +19,7 @@ public class QuickUnion {
 		return p;
 	}
 	//Depth of p array accesses, same as root
-	public boolean find(int p, int q){
+	public boolean isConnected(int p, int q){
 		return root(p) == root(q);
 	}
 	//Depth of p array accesses, same as root
