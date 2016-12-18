@@ -2,7 +2,8 @@ package sources;
 
 /**
  * Data Structure: Integer array of length N
- * Interpretation: Objects p and q are connected if they have the same ID*/
+ * Interpretation: Objects p and q are connected if they have the same ID
+ * */
 public class QuickFind {
 	
 	private int ids[];
