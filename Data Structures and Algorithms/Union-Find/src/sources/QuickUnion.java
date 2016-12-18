@@ -24,8 +24,9 @@ public class QuickUnion {
 	}
 	//Depth of p array accesses, same as root
 	public void union(int p, int q){
-		int p_root = root(p);
-		int q_root = root(q);
-		ids[p_root] = q_root;
+		int pRoot = root(p);
+		int qRoot = root(q);
+		ids[pRoot] = qRoot;
 	}
+	//Trees can get to tall that could be the same as quick find
 }
