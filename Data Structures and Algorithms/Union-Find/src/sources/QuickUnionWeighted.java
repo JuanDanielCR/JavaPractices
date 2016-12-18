@@ -5,7 +5,7 @@ package sources;
  * Interpretation: Quick Union algorithm, which add the smaller tree into the larger
  * */
 
-public class QuickUnionWeighted {
+public class QuickUnionWeighted{
 	
 	private int ids[];
 	private int sz[];

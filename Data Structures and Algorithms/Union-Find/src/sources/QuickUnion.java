@@ -5,7 +5,7 @@ package sources;
  * */
 public class QuickUnion {
 	
-	private int ids[];
+	protected int ids[];
 	//N array accesses
 	public QuickUnion(int l){
 		ids =  new int[l];
@@ -13,7 +13,7 @@ public class QuickUnion {
 			ids[i] = i;
 	}
 	//Depth of p array accesses
-	public int root(int p){
+	protected int root(int p){
 		while(ids[p]!=p)
 			p = ids[p];
 		return p;
