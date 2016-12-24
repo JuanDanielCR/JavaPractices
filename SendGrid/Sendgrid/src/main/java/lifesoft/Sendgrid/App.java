@@ -2,10 +2,7 @@ package lifesoft.Sendgrid;
 import com.sendgrid.*;
 import java.io.IOException;
 
-public class App 
-{
-	
-
+public class App {
 	  public static void main(String[] args) throws IOException {
 	    Email from = new Email("test@example.com");
 	    String subject = "Sending with SendGrid is Fun";
