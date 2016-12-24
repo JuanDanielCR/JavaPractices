@@ -9,11 +9,11 @@ public class App
 	  public static void main(String[] args) throws IOException {
 	    Email from = new Email("test@example.com");
 	    String subject = "Sending with SendGrid is Fun";
-	    Email to = new Email("castilloreyesjuan@gmail.com");
-	    Content content = new Content("text/plain", "and easy to do anywhere, even with Java");
+	    Email to = new Email("armandocreyes02@gmail.com");
+	    Content content = new Content("text/html", "<h1>Titulote</h1>");
 	    Mail mail = new Mail(from, subject, to, content);
 
-	    SendGrid sg = new SendGrid(System.getenv("SENDGRID_API_KEY"));
+	    SendGrid sg = new SendGrid("***");
 	    Request request = new Request();
 	    try {
 	      request.method = Method.POST;
