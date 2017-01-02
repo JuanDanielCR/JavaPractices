@@ -1,6 +1,0 @@
-Línea [0] Palabra: ebay 
-Línea [1] Palabra: web 
-Línea [2] Palabra: ebay 
-Línea [2] Palabra: web 
-Línea [2] Palabra: ebay 
-Línea [2] Palabra: web 
