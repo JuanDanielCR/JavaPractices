@@ -20,12 +20,12 @@ public class Pointers {
 		
 		// a: 0, b: 3
 		swip(a,b);
-		// a is still o  and b is still 3, so java is always pass by value and not by reference
+		// a is still 0 and b is still 3, so java is always pass by value and not by reference
 		
 		// a: 0
 		foo(a);
 		// a: 1 not a: 2 as would expected in pass by reference
-		System.out.println(a.getCounter());
+		System.out.println("a= "+a.getCounter()+" outside the function");
 		
 		//Pointers are also passed by value, this means whit a copy
 		//a: 1
@@ -48,11 +48,13 @@ public class Pointers {
 	}
 	public static void foo(Counter a){
 		a.aumentarCounter();
+		//changing a
+		a  = new Counter(); 
 		//now a points to another place just like C, in C++ the original 'a' object would change its allocation
-		a  = new Counter(); //in pass by reference the original allocation would change, and this result would be shown outside this function
+		//in pass by reference the original allocation would change, and this result would be shown outside this function
 		a.aumentarCounter();
 		a.aumentarCounter();
-		System.out.println(a.getCounter());
+		System.out.println("a= "+a.getCounter()+" inside a function where a = new Counter()");
 	}
 	
 	public static void badReset(Counter copy){

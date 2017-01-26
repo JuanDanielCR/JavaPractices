@@ -22,13 +22,9 @@ public abstract class AbstractProgression {
 		advance();
 		return answer;
 	}
-	/**Protected because this will change according to each progression type*/
-	//protected void advance(){
-		//current++;
-	//}
-	/**Making advance an abstract method, for overriding it, the past implementation, just 
-	 * emulates Arithmetic progression*/
+	/**Protected, this will change according to each progression type. Making advance() an abstract method*/
 	protected abstract void advance();
+	
 	/**Prints the next n values of the progression*/
 	public void printProgression(int n){
 		System.out.print(nextValue());
